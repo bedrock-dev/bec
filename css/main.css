@@ -1,0 +1,18 @@
+body{
+    padding-top: 50px;
+}
+
+.mc-content {
+    width: 40%;
+    margin: 0 auto;
+}
+
+.mc-title {
+    height: 100px;
+    width: 60%;
+    margin: 0 auto;
+}
+.mc-chart{
+    width: 100%;
+    height: 400px;
+}

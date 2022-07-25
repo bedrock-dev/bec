@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<head>
+    <!--
+        src里面是静态资源 th:href里面是启动springboot后引用的资源
+    -->
+    <meta charset="UTF-8">
+    <title>随机刻计算器</title>
+    <link rel="stylesheet" href="./Semantic/semantic.min.css" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="Semantic/semantic.min.js"></script>
+    <script src="js/echarts.js"></script>
+    <script src="js/rng.js"></script>
+
+</head>
+
+<body>
+
+    <div class="mc-title">
+        <h1 class="ui center aligned header">
+            随机刻计算器
+        </h1>
+    </div>
+
+    <div class="mc-content">
+
+
+        <div class="ui form">
+            <div class="fields">
+                <div class="field">
+                    <label>随机刻速度</label>
+                    <input id="rng-speed" type="number" placeholder="1" value="1">
+
+                </div>
+                <div class="field">
+                    <label>区块高度</label>
+                    <input id="chunk-height" type="number" placeholder="384" value="384">
+                </div>
+                <div class="field">
+                    <label>生长概率</label>
+                    <input id="grow-pos" type="number" placeholder="1.0" value="1.0">
+                </div>
+                <div class="field">
+                    <label>阶段数量</label>
+                    <input id="grow-stage" type="number" placeholder="1" value="1">
+                </div>
+
+                <div class="field">
+                    <label>时间(秒)</label>
+                    <input id="grow-time" type="number" placeholder="1" value="60">
+                </div>
+            </div>
+
+
+            <div class="sixteen wide centered column">
+                <button id="rng-calculate" class="ui primary basic fluid button">开始计算</button>
+            </div>
+
+            <br>
+            <br>
+            <div class="ui horizontal divider">
+                结果显示
+            </div>
+
+            <!--echart-->
+            <div class="mc-chart" id="rng-chart">
+                <script type="text/javascript">
+                </script>
+            </div>
+
+
+
+        </div>
+
+
+    </div>
+
+</body>
+
+</html>
