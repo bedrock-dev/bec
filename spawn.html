@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<head>
+    <!--
+        src里面是静态资源 th:href里面是启动springboot后引用的资源
+    -->
+    <meta charset="UTF-8">
+    <title>生物生成模拟器</title>
+    <link rel="stylesheet" href="./Semantic/semantic.min.css" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="Semantic/semantic.min.js"></script>
+    <script src="js/echarts.js"></script>
+    <script src="js/spawn.js"></script>
+
+</head>
+
+<body>
+
+    <div class="mc-title">
+        <h1 class="ui center aligned header">
+            随机刻计算器
+        </h1>
+    </div>
+
+    <div class="mc-content">
+        <div class="ui basic segment">
+            <p>
+                关于生物生成的介绍(1.16+)
+            </p>
+            <br>
+            <br>
+        </div>
+
+
+        <div class="ui form">
+            <div class="fields">
+                <div class="field">
+                    <label>密度上限</label>
+                    <input id="density" type="number" placeholder="1" value="1">
+                </div>
+                <div class="field">
+                    <label>生成概率的倒数</label>
+                    <input id="spawn-pos" type="number" placeholder="700" value="700">
+                </div>
+                <div class="field">
+                    <label>存活时间(gt)</label>
+                    <input id="life-time" type="number" placeholder="1.0" value="10">
+                </div>
+                <div class="field">
+                    <label>掉落物个数</label>
+                    <input id="drops" type="number" placeholder="1" value="1">
+                </div>
+
+                <div class="field">
+                    <label>模拟时间(秒)</label>
+                    <input id="sim-time" type="number" placeholder="1" value="360">
+                </div>
+            </div>
+
+
+
+            <div class="sixteen wide centered column">
+                <button id="rng-calculate" class="ui primary basic fluid button">开始一次随机模拟</button>
+            </div>
+            <br>
+            <div class="sixteen wide centered column">
+                <button id="rng-calculate" class="ui primary basic fluid button">模拟1000次并显示效率直方图</button>
+            </div>
+            <br>
+            <br>
+            <div class="ui horizontal divider">
+                结果显示
+            </div>
+            <!--echart-->
+            <div class="mc-chart" id="iron-chart-1">
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
