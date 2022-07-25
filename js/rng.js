@@ -1,11 +1,12 @@
 function getPosArray(p,time){
     var posPow = new Array();
     let temp = 1;
-    for(var i = 0; i <= time;i++){
+    for(var i = 0; i <= time+1;i++){
         posPow.push(temp);
         temp *= p;
-    }
+    }    
     return posPow;
+   
 }
 
 function comb(m,n){
@@ -29,9 +30,10 @@ stage 目标状态
 function getStagePInTimes(t,p,np,stage){
     let res = 1;
     for(var i = 0; i< stage;i++){
-        let pos_state = comb(t,i) * p[i] * np[t-i];
-        res -= pos_state;
+        let pos_stage = comb(t,i) * p[i] * np[t-i];
+        res -= pos_stage;
     }
+
     return res;
 }
 
@@ -93,28 +95,22 @@ function calculate_data(){
 
     let step = 40;
     let growGt = growTime * 20;
+    let pAarray = getPosArray(p,growGt);
+    let npParray = getPosArray(1-p,growGt);
+    
+    console.log("plen = "+pAarray.length)
+    console.log("nplen = ",npParray.length)
 
 
     if(growGt / step > 60){
-        step = growGt / 60;
+        step = parseInt(growGt / 60);
     }
-
-
-    
-    let pParray = getPosArray(p,growGt );
-    let npParray = getPosArray(1-p,growGt);
- 
-
-    // for(var i = 0;i < 20;i++){
-    //     let r = getStagePInTimes(i ,pParray,npParray,stage);
-    //     x.push(i/20);
-    //     y.push(r);
-    // }
 
 
     for(let i = step;i <= growGt;i+=step){
         if(i <= growGt){
-            let r = getStagePInTimes(i ,pParray,npParray,stage);
+            let r = getStagePInTimes(i ,pAarray,npParray,stage);
+            console.log("R = "+r);
             x.push(i/20);
             y.push(r);
         }
