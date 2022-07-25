@@ -111,7 +111,7 @@ function calculate_data(){
     for(let i = step;i <= growGt;i+=step){
         if(i <= growGt){
             let r = getStagePInTimes(i ,pParray,npParray,stage);
-            x.push(parseInt(i/step));
+            x.push(parseInt(i/20));
             y.push(r);
         }
     }
