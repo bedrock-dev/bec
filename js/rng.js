@@ -27,13 +27,10 @@ p 概率表
 stage 目标状态
 */
 function getStagePInTimes(t,p,np,stage){
-    // console.log("p array: ",p);
-    // console.log("np array: ",np);
     let res = 1;
     for(var i = 0; i< stage;i++){
         let pos_state = comb(t,i) * p[i] * np[t-i];
         res -= pos_state;
-       // console.log("poibility in stage " + i + " is " + pos_state);
     }
     return res;
 }
@@ -98,7 +95,7 @@ function calculate_data(){
     let growGt = growTime * 20;
 
 
-    if(growTime / step > 60){
+    if(growGt / step > 60){
         step = growGt / 60;
     }
 
@@ -106,12 +103,19 @@ function calculate_data(){
     
     let pParray = getPosArray(p,growGt );
     let npParray = getPosArray(1-p,growGt);
+ 
+
+    // for(var i = 0;i < 20;i++){
+    //     let r = getStagePInTimes(i ,pParray,npParray,stage);
+    //     x.push(i/20);
+    //     y.push(r);
+    // }
 
 
     for(let i = step;i <= growGt;i+=step){
         if(i <= growGt){
             let r = getStagePInTimes(i ,pParray,npParray,stage);
-            x.push(parseInt(i/20));
+            x.push(i/20);
             y.push(r);
         }
     }
@@ -124,16 +128,16 @@ function calculate_data(){
 
 }
 
-function plot_data(chart,d){
+function plot_data(chart,d,ti,xlabel,ylabel){
      var  option = {
          title: {
-          text: '生长概率图'
+          text: ti
         },
  xAxis: {
-    name: '时间(s)',
+    name: xlabel,
   },
   yAxis: {
-    name: '概率',
+    name: ylabel,
     // ...
   },
   yAxis: {},
@@ -149,12 +153,21 @@ function plot_data(chart,d){
 
 $(document).ready(function () {
 
-  var rng_chart = echarts.init(document.getElementById('rng-chart'));
+  var rng_chart_1 = echarts.init(document.getElementById('rng-chart-1'));
+  var rng_chart_2 = echarts.init(document.getElementById('rng-chart-2'));
                     // 指定图表的配置项和数据
     $('#rng-calculate').click(function () {
         data = calculate_data();
         console.log(data)
-        plot_data(rng_chart,data);
+        plot_data(rng_chart_1,data,"生长概率图","时间(s)","概率");
+        
+    for (var i = 0;i < data.length;i++){
+        data[i][1] /= data[i][0];
+        data[i][1] *= 3600;
+    }
+        
+        plot_data(rng_chart_2,data,"相对效率图","时间(s)","相对效率");
+
     });
 
 });
