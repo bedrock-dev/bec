@@ -3,16 +3,17 @@ body{
 }
 
 .mc-content {
-    width: 40%;
+    width: 55%;
     margin: 0 auto;
 }
 
 .mc-title {
     height: 100px;
-    width: 60%;
+    width: 70%;
     margin: 0 auto;
 }
 .mc-chart{
     width: 100%;
     height: 400px;
+    margin: 0 auto;
 }
