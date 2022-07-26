@@ -41,30 +41,31 @@
                 </div>
                 <div class="field">
                     <label>生成概率的倒数</label>
-                    <input id="spawn-pos" type="number" placeholder="700" value="700">
+                    <input id="pos" type="number" placeholder="700" value="700">
+                </div>
+                <div class="field">
+                    <label>生成概率修正值</label>
+                    <input id="corr" type="number" placeholder="1.0" value="1.0">
                 </div>
                 <div class="field">
                     <label>存活时间(gt)</label>
-                    <input id="life-time" type="number" placeholder="1.0" value="10">
-                </div>
-                <div class="field">
-                    <label>掉落物个数</label>
-                    <input id="drops" type="number" placeholder="1" value="1">
+                    <input id="life" type="number" placeholder="1.0" value="10">
                 </div>
                 <div class="field">
                     <label>模拟时间(gt)</label>
-                    <input id="sim-time" type="number" placeholder="1" value="360">
+                    <input id="time" type="number" placeholder="1" value="360">
                 </div>
             </div>
 
 
 
             <div class="sixteen wide centered column">
-                <button id="rng-calculate" class="ui primary basic fluid button">开始一次随机模拟(开发中)</button>
+                <button id="spawn-sim" class="ui primary basic fluid button">开始一次随机模拟(开发中)</button>
             </div>
+
             <br>
             <div class="sixteen wide centered column">
-                <button id="rng-calculate" class="ui primary basic fluid button">模拟1000次并显示效率直方图(开发中)</button>
+                <button id="spawn-his" class="ui primary basic fluid button">模拟1000次并显示效率直方图(开发中)</button>
             </div>
             <br>
             <br>
@@ -72,7 +73,7 @@
                 结果显示
             </div>
             <!--echart-->
-            <div class="mc-chart" id="iron-chart-1">
+            <div class="mc-chart" id="spawn-chart">
             </div>
 
         </div>
