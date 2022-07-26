@@ -88,10 +88,8 @@ $(document).ready(function () {
 
 
         $('#spawn-his').click(function () {  
-
-
         let m = {};
-        for(var  i = 0; i < 1000;i++){
+        for(var  i = 0; i < 200;i++){
             let data = calculate_data();
             let n =  data[data.length-1][1]
             if (!m[n]) {
@@ -102,18 +100,21 @@ $(document).ready(function () {
     
         d = []
        Object.keys(m).sort().forEach(function(num) {
-            d.push([parseInt(num),m[num] / 1000])
+            d.push([parseInt(num),m[num] / 200])
         });
         
         d.sort((a,b)=>{ 
-            if(a[0] < b[0])return 1;
-            if(a[0] > b[0])return -1;
+            if(a[0] < b[0])return -1;
+            if(a[0] > b[0])return 1;
             return 0;
         });
 
-    
+        for(let i = 0; i < d.length -1;i++){
+            d[i+1][1] += d[i][1]
+        }
+
         console.log(d)
-        plot_data(spawn_chart,d,'生成频率图','生成个数','频率')        
+        plot_data(spawn_chart,d,'生成累计图','生成个数','频率')        
     });
 
 
