@@ -3,7 +3,6 @@ $(document).ready(function () {
         window.location.href = "./rng.html";
     });
     $('#spawn-btn').click(function () {
-        alert("QAQ");
         window.location.href = "./spawn.html";
     });
 });
