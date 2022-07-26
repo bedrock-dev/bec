@@ -73,7 +73,7 @@ function calculate_data(){
         return false;
     }
 
-    if(growTime <=0 || growTime >= 36000){
+    if(growTime <=0 || growTime > 720000){
         alert("不合法的测试时间");
         return false;
     }
@@ -94,7 +94,7 @@ function calculate_data(){
     y.push(0);
 
     let step = 40;
-    let growGt = growTime * 20;
+    let growGt = growTime;
     let pAarray = getPosArray(p,growGt);
     let npParray = getPosArray(1-p,growGt);
     
@@ -111,7 +111,7 @@ function calculate_data(){
         if(i <= growGt){
             let r = getStagePInTimes(i ,pAarray,npParray,stage);
             console.log("R = "+r);
-            x.push(i/20);
+            x.push(i);
             y.push(r);
         }
     }
@@ -155,14 +155,14 @@ $(document).ready(function () {
     $('#rng-calculate').click(function () {
         data = calculate_data();
         console.log(data)
-        plot_data(rng_chart_1,data,"生长概率图","时间(s)","概率");
+        plot_data(rng_chart_1,data,"生长概率图","时间(gt)","概率");
         
     for (var i = 0;i < data.length;i++){
         data[i][1] /= data[i][0];
-        data[i][1] *= 3600;
+        data[i][1] *= 72000;
     }
         
-        plot_data(rng_chart_2,data,"相对效率图","时间(s)","相对效率");
+        plot_data(rng_chart_2,data,"相对效率图","时间(gt)","相对效率");
 
     });
 
