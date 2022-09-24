@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+
+<head>
+    <!--
+        src里面是静态资源 th:href里面是启动springboot后引用的资源
+    -->
+    <meta charset="UTF-8">
+    <title>单村庄可视化</title>
+    <link rel="stylesheet" href="./Semantic/semantic.min.css" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="Semantic/semantic.min.js"></script>
+    <script src="js/echarts.js"></script>
+    <script src="js/village.js"></script>
+
+</head>
+
+<body>
+
+    <div class="mc-title">
+        <h1 class="ui center aligned header">
+            单村庄可视化
+        </h1>
+    </div>
+
+    <div class="mc-content">
+
+        <table class="ui compact celled table">
+            <thead>
+
+                <tr>
+                    <th>名字</th>
+                    <th>键</th>
+                    <th>床坐标</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>村民1</td>
+                    <td>1</td>
+                    <td>12,22</td>
+                    <td>
+                        <div class="ui small button">
+                            删除
+                        </div>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>村民1</td>
+                    <td>1</td>
+                    <td>12,22</td>
+                    <td>
+                        <div class="ui small button">
+                            删除
+                        </div>
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td>村民1</td>
+                    <td>1</td>
+                    <td>12,22</td>
+                    <td>
+                        <div class="ui small button">
+                            删除
+                        </div>
+                    </td>
+
+                </tr>
+
+
+                <tr>
+                    <td>村民1</td>
+                    <td>1</td>
+                    <td>12,22</td>
+                    <td>
+                        <div class="ui small button">
+                            删除
+                        </div>
+                    </td>
+
+                </tr>
+
+
+
+
+                <tr>
+                    <td>
+                        <div class="ui input">
+                            <input type="text" id="vill-name" placeholder="村民名字">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="ui input">
+                            <input type="number" id="vill-id" placeholder="默认采用自增id">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="ui input">
+                            <input type="text" id="vill-bed" placeholder="两个数字，逗号隔开">
+                        </div>
+                    </td>
+
+                    <td>
+                        <div class="ui small button" id="add-vill">
+                            添加
+                        </div>
+                    </td>
+
+                </tr>
+
+            </tbody>
+        </table>
+
+
+
+        <canvas class="vill" width="400" height="400">
+            <p>卧槽你的浏览器竟然不支持 canvas！</p>
+        </canvas>
+
+    </div>
+
+</body>
+
+</html>
